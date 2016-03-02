@@ -1,6 +1,6 @@
 {
   "name": "gulp-i18n-add-locales",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add placeholder JSON files in target locales for i18n-behavior",
   "main": "index.js",
   "scripts": {
