@@ -20,6 +20,9 @@ Project template available at [polymer-starter-kit-i18n](https://github.com/t2ym
 
 ```javascript
     var gutil = require('gulp-util');
+    var grepContents = require('gulp-grep-contents');
+    var size = require('gulp-size');
+    
     var i18nAddLocales = require('gulp-i18n-add-locales');
 
     var config = {
@@ -30,19 +33,19 @@ Project template available at [polymer-starter-kit-i18n](https://github.com/t2ym
     // Add locales to I18N-ready elements and pages
     gulp.task('locales', function() {
       var elements = gulp.src([ 'app/elements/**/*.html' ], { base: 'app' })
-        .pipe($.grepContents(/i18n-behavior.html/))
-        .pipe($.grepContents(/<dom-module /));
+        .pipe(grepContents(/i18n-behavior.html/))
+        .pipe(grepContents(/<dom-module /));
 
       var pages = gulp.src([
           'app/**/*.html',
           '!app/{bower_components,styles,scripts,images,fonts}/**/*'
         ], { base: 'app' })
-        .pipe($.grepContents(/is=['"]i18n-dom-bind['"]/));
+        .pipe(grepContents(/is=['"]i18n-dom-bind['"]/));
 
       return merge(elements, pages)
         .pipe(i18nAddLocales(config.locales))
         .pipe(gulp.dest('app'))
-        .pipe($.size({
+        .pipe(size({
           title: 'locales'
         }));
     });
