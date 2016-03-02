@@ -91,14 +91,14 @@ module.exports = function (locales) {
           if (firstFile) {
             firstFile = false;
             file.path = target;
-            file.contents = new Buffer('');
+            file.contents = new Buffer('{}');
           }
           else {
             stream.push(new gutil.File({
               cwd: cwd,
               base: base,
               path: target,
-              contents: new Buffer('')
+              contents: new Buffer('{}')
             }));
           }
           //console.log('addLocales: creating ' + target);
