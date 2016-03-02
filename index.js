@@ -68,9 +68,9 @@ module.exports = function (locales) {
       basenames.push(moduleId);
     }
 
+    var targetDir = path.join(path.dirname(file.path), localesFolder);
     for (j in basenames) {
       var basename = basenames[j];      
-      var targetDir = path.join(path.dirname(file.path), localesFolder);
       try {
         fs.mkdirSync(targetDir);
       }
