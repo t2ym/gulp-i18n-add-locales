@@ -51,6 +51,7 @@ module.exports = function (locales) {
         case 'body':
         case 'head':
         case 'html':
+        case 'i18n-dom-bind':
           return true;
         default:
           return false;
